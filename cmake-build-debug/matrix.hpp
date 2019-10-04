@@ -11,17 +11,30 @@ class Matrix{
 
 public:
     Matrix();
-    Matrix(double col, double row);
+    Matrix(int col, int row);
+    Matrix(int n);
+    Matrix(double arr[]);
+    void setVal(int col, int row, double newVal);
+    double getVal(int col, int row) const;
+    void clear();
+    ~Matrix();
+    friend ostream& operator<<(ostream& os, const Matrix& mat);
+    friend bool operator==(const Matrix& mat1, const Matrix& mat2);
+    friend bool operator!=(const Matrix& mat1, const Matrix& mat2);
+    Matrix& operator++();
+    Matrix& operator++(int);
+    Matrix& operator--();
+    Matrix& operator--(int);
 
+    Matrix& operator+(const Matrix& mat);
 private:
-    double col, row;
+    int col, row;
     double** a;
     void allocateArr(){
          a = new double*[row];
         for(int i = 0; i < row; ++i)
             a[i] = new double[col];
     };
-
 };
 
 
