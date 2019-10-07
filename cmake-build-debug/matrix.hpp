@@ -14,10 +14,15 @@ public:
     Matrix(int col, int row);
     Matrix(int n);
     Matrix(double arr[]);
-    void setVal(int col, int row, double newVal);
-    double getVal(int col, int row) const;
+    void set_value(int col, int row, double newVal);
+    double get_value(int col, int row) const;
     void clear();
     ~Matrix();
+    int getRow() const;
+    int getCol() const;
+
+
+
     friend ostream& operator<<(ostream& os, const Matrix& mat);
     friend bool operator==(const Matrix& mat1, const Matrix& mat2);
     friend bool operator!=(const Matrix& mat1, const Matrix& mat2);
@@ -25,8 +30,12 @@ public:
     Matrix& operator++(int);
     Matrix& operator--();
     Matrix& operator--(int);
+    Matrix& operator=(const Matrix& mat);
+    friend void mySwap(Matrix& mat1, Matrix mat2);
+    friend Matrix& operator+(const Matrix& mat1, const Matrix& mat2);
+    friend Matrix& operator-(const Matrix& mat1, const Matrix& mat2);
 
-    Matrix& operator+(const Matrix& mat);
+
 private:
     int col, row;
     double** a;
