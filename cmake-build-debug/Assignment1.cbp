@@ -80,13 +80,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/Users/Alec/CLionProjects/Assignment1/cmake-build-debug/matrix.cpp">
-			<Option target="Assignment1"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/Users/Alec/CLionProjects/Assignment1/cmake-build-debug/matrix.hpp">
-			<Option target="Assignment1"/>
-		</Unit>
 		<Unit filename="/cygdrive/c/Users/Alec/CLionProjects/Assignment1/main.cpp">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Alec/CLionProjects/Assignment1/matrix.cpp">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Alec/CLionProjects/Assignment1/matrix.hpp">
 			<Option target="Assignment1"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Alec/CLionProjects/Assignment1/CMakeLists.txt">

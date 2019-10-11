@@ -71,17 +71,17 @@ CMakeFiles/Assignment1.dir/main.cpp.s: cmake_force
 	C:/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Alec/CLionProjects/Assignment1/main.cpp -o CMakeFiles/Assignment1.dir/main.cpp.s
 
 CMakeFiles/Assignment1.dir/matrix.cpp.o: CMakeFiles/Assignment1.dir/flags.make
-CMakeFiles/Assignment1.dir/matrix.cpp.o: matrix.cpp
+CMakeFiles/Assignment1.dir/matrix.cpp.o: ../matrix.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Alec/CLionProjects/Assignment1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Assignment1.dir/matrix.cpp.o"
-	C:/cygwin64/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment1.dir/matrix.cpp.o -c /cygdrive/c/Users/Alec/CLionProjects/Assignment1/cmake-build-debug/matrix.cpp
+	C:/cygwin64/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment1.dir/matrix.cpp.o -c /cygdrive/c/Users/Alec/CLionProjects/Assignment1/matrix.cpp
 
 CMakeFiles/Assignment1.dir/matrix.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment1.dir/matrix.cpp.i"
-	C:/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Alec/CLionProjects/Assignment1/cmake-build-debug/matrix.cpp > CMakeFiles/Assignment1.dir/matrix.cpp.i
+	C:/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Alec/CLionProjects/Assignment1/matrix.cpp > CMakeFiles/Assignment1.dir/matrix.cpp.i
 
 CMakeFiles/Assignment1.dir/matrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment1.dir/matrix.cpp.s"
-	C:/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Alec/CLionProjects/Assignment1/cmake-build-debug/matrix.cpp -o CMakeFiles/Assignment1.dir/matrix.cpp.s
+	C:/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Alec/CLionProjects/Assignment1/matrix.cpp -o CMakeFiles/Assignment1.dir/matrix.cpp.s
 
 # Object files for target Assignment1
 Assignment1_OBJECTS = \
