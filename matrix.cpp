@@ -74,7 +74,6 @@ void Matrix::set_value(int row,int col, double newVal){
     if( col < 0  || row < 0 ) {
             throw "row/col is zero or negative";
     }
-    //TODO: Check if this works
     if(col > Matrix::col || row > Matrix::row){
         throw "row/col is too big";
     }
@@ -85,7 +84,6 @@ double Matrix::get_value(int row, int col) const{
     if( col < 0  || row < 0 ) {
         throw "row/col is zero or negative";
     }
-    //TODO: Check if this works
     if(col > Matrix::col || row > Matrix::row){
         throw "row/col is too big";
     }
@@ -170,7 +168,7 @@ Matrix& Matrix:: operator--(){
     }
     return *this;
 }
-Matrix& Matrix:: operator--(int){
+Matrix Matrix:: operator--(int){
     Matrix tmp(*this);
     operator--();
     return tmp;
@@ -259,9 +257,6 @@ Matrix& Matrix::operator*=(const Matrix& mat){
     return *this;
 }
 
-
-
-//TODO THIS NEEDS TO BE FIXED
 Matrix operator*(const Matrix& mat1, const Matrix& mat2){
 
     Matrix m(mat1.getRow(), mat2.getCol());
