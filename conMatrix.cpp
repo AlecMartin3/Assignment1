@@ -18,7 +18,7 @@ conMatrix::conMatrix(double *a, int n) : Matrix(a, n) {
 
 }
 
-conMatrix::conMatrix(const conMatrix &m) :Matrix(m) {
+conMatrix::conMatrix(const conMatrix &m) : Matrix(m) {
 
 }
 
