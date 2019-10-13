@@ -2,7 +2,7 @@
 #include "matrix.hpp"
 #include "pagerank.hpp"
 /*
- * Runs the pageRank and pritns the results
+ * Runs the pageRank and prints the results
  */
 int main() {
     PageRank p;

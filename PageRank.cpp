@@ -115,7 +115,7 @@ Matrix rank(m.getRow(), 1);
     }
 return rank;
 }
-//Multiplys the M matrix by the rank. Keeps ding this till the rank stops changing
+//Multiply the M matrix by the rank. Keeps ding this till the rank stops changing
 Matrix PageRank::multiplyRank(const Matrix &rank, const Matrix &m) {
     Matrix result = m * rank;
     if(result!=rank) {
