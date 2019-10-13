@@ -9,11 +9,6 @@ using namespace std;
 conMatrix::conMatrix():Matrix(){
 
 }
-
-conMatrix::conMatrix(int n) : Matrix(n) {
-
-}
-
 conMatrix::conMatrix(double *a, int n) : Matrix(a, n) {
 
 }

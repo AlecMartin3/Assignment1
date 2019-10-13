@@ -22,7 +22,6 @@ PageRank::PageRank() {
     int j = 0;
 
     file.open("connectivity.txt");
-
     while (file >> d_num) {
         array[j] = d_num;
         j++;
@@ -46,8 +45,6 @@ Matrix PageRank::createS(const Matrix &g) {
         for (int j = 0; j < s.getRow(); ++j) {
             if (s.get_value(j, i) == 1)
                 sum++;
-
-
         }
         if (sum != 0) {
             for (int k = 0; k < s.getRow(); ++k) {
