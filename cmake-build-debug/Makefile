@@ -123,6 +123,60 @@ Assignment1/fast:
 	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/build
 .PHONY : Assignment1/fast
 
+PageRank.o: PageRank.cpp.o
+
+.PHONY : PageRank.o
+
+# target to build an object file
+PageRank.cpp.o:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/PageRank.cpp.o
+.PHONY : PageRank.cpp.o
+
+PageRank.i: PageRank.cpp.i
+
+.PHONY : PageRank.i
+
+# target to preprocess a source file
+PageRank.cpp.i:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/PageRank.cpp.i
+.PHONY : PageRank.cpp.i
+
+PageRank.s: PageRank.cpp.s
+
+.PHONY : PageRank.s
+
+# target to generate assembly for a file
+PageRank.cpp.s:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/PageRank.cpp.s
+.PHONY : PageRank.cpp.s
+
+conMatrix.o: conMatrix.cpp.o
+
+.PHONY : conMatrix.o
+
+# target to build an object file
+conMatrix.cpp.o:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/conMatrix.cpp.o
+.PHONY : conMatrix.cpp.o
+
+conMatrix.i: conMatrix.cpp.i
+
+.PHONY : conMatrix.i
+
+# target to preprocess a source file
+conMatrix.cpp.i:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/conMatrix.cpp.i
+.PHONY : conMatrix.cpp.i
+
+conMatrix.s: conMatrix.cpp.s
+
+.PHONY : conMatrix.s
+
+# target to generate assembly for a file
+conMatrix.cpp.s:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/conMatrix.cpp.s
+.PHONY : conMatrix.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -186,6 +240,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Assignment1"
 	@echo "... edit_cache"
+	@echo "... PageRank.o"
+	@echo "... PageRank.i"
+	@echo "... PageRank.s"
+	@echo "... conMatrix.o"
+	@echo "... conMatrix.i"
+	@echo "... conMatrix.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

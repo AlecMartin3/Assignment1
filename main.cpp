@@ -13,7 +13,7 @@ int main() {
     {
         for(int j = 0; j < d2; ++j)
         {
-            matrix1.set_value(i,j, 1);
+            matrix1.set_value(i,j, 1.0);
         }
     }
     cout << matrix1 << endl;
@@ -23,7 +23,7 @@ int main() {
     {
         for(int j = 0; j < d4; ++j)
         {
-            matrix2.set_value(i,j, 2);
+            matrix2.set_value(i,j, 2.0);
         }
     }
     cout << "Matrix2" << endl;
@@ -96,12 +96,12 @@ int main() {
     cout << matrix5 << endl;
 
     std::cout << "Square Matrix 2" << std::endl;
-    double mat6 [4] = {1,2,3,4};
+    double mat6 [4] = {1.0,2.0,3.0,4.0};
     Matrix matrix6(mat6, 4);
     cout << matrix6 << endl;
 
     std::cout << "Square Matrix *= Square Matrix" << std::endl;
-    double mat7[4] = {1,2,3,4};
+    double mat7[4] = {1.0,2.0,3.0,4.0};
     Matrix matrix7(mat7, 4);
     matrix6 *= matrix7;
     cout << matrix6 << endl;
@@ -113,7 +113,7 @@ int main() {
     {
         for(int j = 0; j < 2; ++j)
         {
-            matrix10.set_value(i,j, 3);
+            matrix10.set_value(i,j, 3.2);
         }
     }
     matrix10 *= matrix7;

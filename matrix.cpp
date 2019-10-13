@@ -224,7 +224,7 @@ Matrix& Matrix::operator-=( Matrix& mat){
     return *this;
 }
 
-Matrix& operator-(const Matrix& mat1,  const Matrix& mat2){
+Matrix operator-(const Matrix& mat1,  const Matrix& mat2){
     if (mat1.getCol() != mat2.getCol() || mat1.getRow() != mat2.getRow()){
         throw "Size of matrices are not the same";
     }

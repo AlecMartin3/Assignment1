@@ -80,6 +80,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/c/Users/Alec/CLionProjects/Assignment1/PageRank.cpp">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Alec/CLionProjects/Assignment1/PageRank.hpp">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Alec/CLionProjects/Assignment1/conMatrix.cpp">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Alec/CLionProjects/Assignment1/conMatrix.hpp">
+			<Option target="Assignment1"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/Alec/CLionProjects/Assignment1/main.cpp">
 			<Option target="Assignment1"/>
 		</Unit>

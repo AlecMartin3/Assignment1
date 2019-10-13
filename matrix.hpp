@@ -30,7 +30,7 @@ public:
     Matrix operator--(int);
     Matrix& operator=(Matrix mat);
     friend void mySwap(Matrix &mat1, Matrix &mat2);
-    friend Matrix operator+(const Matrix& mat1,const Matrix& mat2);
+    friend Matrix operator+(const Matrix& mat1, const Matrix& mat2);
     Matrix& operator+=(Matrix &mat);
     friend Matrix operator-(const Matrix& mat1, const Matrix& mat2);
     Matrix& operator-=(Matrix& mat);
