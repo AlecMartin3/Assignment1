@@ -6,7 +6,11 @@
 #define ASSIGNMENT1_MATRIX_HPP
 #include <iostream>
 using namespace std;
-
+/*
+ * Creates the matrix class that does everything from creating the matrix to multiplying them,
+ * Overloads most operators for matrix use and has multiple constructors for different uses.
+ * It uses arrays for the matrix and calls allocate array to give memory to the arrays based on their size.
+ */
 class Matrix{
 
 public:

@@ -8,7 +8,10 @@
 #include "Matrix.hpp"
 #include "conMatrix.hpp"
 using namespace std;
-
+/*
+ * Google page rank algorithm class. An algorithm using matrices to determine the importance of each page on google
+ * Uses the Matrix and conMatrix classes.
+ */
 class PageRank {
 private:
     int W;
@@ -16,12 +19,12 @@ private:
     int sum;
 public:
     PageRank();
-    ~PageRank();
+    ~PageRank() = default;
     conMatrix createG();
     Matrix createS(const Matrix &g);
     Matrix createSBlank(const Matrix &g);
     Matrix createQ();
-    Matrix createR(const Matrix &s, const Matrix &q);
+    Matrix createM(const Matrix &s, const Matrix &q);
     Matrix createRank(const Matrix &m);
     Matrix multiplyRank(const Matrix &rank, const Matrix &m);
     Matrix divideRank(const Matrix &m);

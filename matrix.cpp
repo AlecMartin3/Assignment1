@@ -7,11 +7,13 @@
 #include <iomanip>
 #include "matrix.hpp"
 
-
+//Default constructor. creates a 1 x 1 matrix
 Matrix:: Matrix(): Matrix(1,1){
 }
+//Creates an n x n array
 Matrix:: Matrix(int n): Matrix(n,n){
 }
+//Creates a new matrix using the values of row and col
 Matrix:: Matrix( int row, int col){
     if( col <= 0  || row <= 0 ) {
         throw "row/col is zero or negative";
@@ -27,6 +29,7 @@ Matrix:: Matrix( int row, int col){
         }
     }
 };
+//Creates a square matrix using an array. Uses n as the size
 Matrix::Matrix(double arr[], int n) {
     int sr = sqrt(n);
     if ((sr * sr) != n) {
@@ -50,6 +53,7 @@ Matrix::Matrix(double arr[], int n) {
     }
 
 }
+//Copy constructor. Takes in a reference to a matrix
 Matrix:: Matrix(const Matrix& N)
 {
     row = N.row;
@@ -71,6 +75,7 @@ Matrix:: Matrix(const Matrix& N)
         }
     }
 }
+//Sets the value of a double at row x col
 void Matrix::set_value(int row,int col, double newVal){
     if( col < 0  || row < 0 ) {
             throw "row/col is zero or negative";
@@ -80,7 +85,7 @@ void Matrix::set_value(int row,int col, double newVal){
     }
     a[row][col] = newVal;
 }
-
+//Gets the value of a double at row x col
 double Matrix::get_value(int row, int col) const{
     if( col < 0  || row < 0 ) {
         throw "row/col is zero or negative";
@@ -92,7 +97,7 @@ double Matrix::get_value(int row, int col) const{
     return num;
 
 }
-
+//Sets all the values in an array to zero
 void Matrix::clear(){
     for(int i = 0; i < getRow(); i++){
         for(int j = 0; j < getCol(); j++){
@@ -100,7 +105,7 @@ void Matrix::clear(){
         }
     }
 }
-
+//Destructor of the Matrix
 Matrix::~Matrix()
 {
     for(int i = 0; i < row; i++)
@@ -109,26 +114,27 @@ Matrix::~Matrix()
     }
     delete [] a;
 }
-
+//Gets the column and returns it
 int Matrix::getCol() const {
     return col;
 }
+//Gets the row and returns it
 int Matrix::getRow() const{
     return row;
 }
 
-
+//Overloads the insertion operator. sets the precision to 2 decimal points
 ostream& operator<<(ostream& os, const Matrix& mat)
 {
     for(int i = 0; i < mat.getRow(); ++i){
         for(int j = 0; j < mat.getCol(); ++j){
-            os << fixed << setprecision(2) << mat.get_value(i, j) << " ";
+            os << fixed << setprecision(0) << mat.get_value(i, j) << " ";
         }
         os << "\n";
     }
     return os;
 }
-
+//Overloads the equals operator. checks if the matrices are equal within a tolerance.
 bool operator==( const Matrix& mat1, const Matrix& mat2)
 {
     if(mat1.getCol() != mat2.getCol() || mat1.getRow() != mat2.getRow()){
@@ -144,10 +150,11 @@ bool operator==( const Matrix& mat1, const Matrix& mat2)
     }
     return true;
 }
+//Overloads the not equals operator. calls the equals operator to check if they are not equal.
 bool operator!=( const Matrix& mat1,  const Matrix& mat2){
     return !operator==(mat1,mat2);
 }
-
+//Overloads the prefix increment.
 Matrix& Matrix:: operator++(){
     for(int i = 0; i < getRow(); i++){
         for(int j = 0; j < getCol(); j++){
@@ -156,11 +163,13 @@ Matrix& Matrix:: operator++(){
     }
     return *this;
 }
+//Overloads the postfix increment.
 Matrix Matrix:: operator++(int){
     Matrix tmp(*this);
     operator++();
     return tmp;
 }
+//Overloads the prefix decrement.
 Matrix& Matrix:: operator--(){
     for(int i = 0; i < getRow(); i++){
         for(int j = 0; j < getCol(); j++){
@@ -169,24 +178,25 @@ Matrix& Matrix:: operator--(){
     }
     return *this;
 }
+//Overloads the postfix decrement.
 Matrix Matrix:: operator--(int){
     Matrix tmp(*this);
     operator--();
     return tmp;
 }
-
+//Used for copy and swap idom. Swaps the array, row, and col of two matrices
 void mySwap(Matrix& mat1, Matrix& mat2){
     using std::swap;
     swap(mat1.a, mat2.a);
     swap(mat1.row, mat2.row);
     swap(mat1.col, mat2.col);
 }
-
+//Overloads equals operator. Passes in a copy of the matrix. Calls swap then returns this.
 Matrix& Matrix:: operator=(Matrix mat){
     mySwap(*this, mat);
     return *this;
 }
-
+//Overloads plus equal operator. Returns the array with the new values
 Matrix& Matrix:: operator+=(Matrix &mat){
     if (mat.getCol() != getCol() || mat.getRow() != getRow()){
         throw "Size of matrices are not the same";
@@ -198,7 +208,7 @@ Matrix& Matrix:: operator+=(Matrix &mat){
     }
     return *this;
 }
-
+//Overloads the plus operator. Returns a new array
 Matrix operator+(const Matrix& mat1,const Matrix& mat2){
 
     if (mat1.getCol() != mat2.getCol() || mat1.getRow() != mat2.getRow()){
@@ -212,7 +222,7 @@ Matrix operator+(const Matrix& mat1,const Matrix& mat2){
     }
     return m;
 }
-
+//Overloads minus equal operator. Returns the array with the new values
 Matrix& Matrix::operator-=( Matrix& mat){
     if (mat.getCol() != getCol() || mat.getRow() != getRow()){
         throw "Size of matrices are not the same";
@@ -224,7 +234,7 @@ Matrix& Matrix::operator-=( Matrix& mat){
     }
     return *this;
 }
-
+//Overloads the minus operator. Returns a new array
 Matrix operator-(const Matrix& mat1,  const Matrix& mat2){
     if (mat1.getCol() != mat2.getCol() || mat1.getRow() != mat2.getRow()){
         throw "Size of matrices are not the same";
@@ -238,7 +248,7 @@ Matrix operator-(const Matrix& mat1,  const Matrix& mat2){
     return m;
 }
 
-
+//Overloads times equals operator. Returns the array with the new values
 Matrix& Matrix::operator*=(const Matrix& mat){
     if(this->getCol() != mat.getRow()){
         throw"Error";
@@ -257,7 +267,7 @@ Matrix& Matrix::operator*=(const Matrix& mat){
     *this = m;
     return *this;
 }
-
+//Overloads the times operator. Returns a new array
 Matrix operator*(const Matrix& mat1, const Matrix& mat2){
 
     Matrix m(mat1.getRow(), mat2.getCol());

@@ -6,7 +6,9 @@
 #define ASSIGNMENT1_CONMATRIX_HPP
 
 #include "Matrix.hpp"
-
+/*
+ * Makes a conMatrix that uses only 1s and 0s, is created from a file. Uses the Matrix class as a parent
+ */
 class conMatrix : public Matrix {
 public:
     conMatrix();

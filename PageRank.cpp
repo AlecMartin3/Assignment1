@@ -6,7 +6,8 @@
 #include <fstream>
 #include <iostream>
 #include <iomanip>
-
+//Default constructor. Reads the numbers from the file into d_num then makes an array where the values
+//are equal to d_num
 PageRank::PageRank() {
     int i = 0;
     double d_num = 0.0;
@@ -28,15 +29,17 @@ PageRank::PageRank() {
     }
     file.close();
 }
-
+//Destructor for PageRank
 PageRank::~PageRank(){
 
 }
-
+//Creates the array that is from the file
 conMatrix PageRank::createG() {
     conMatrix g(array, W);
     return g;
 }
+//Creates the "importance". for every column where there is at least one 1 divide all the values by the number of 1s
+//else leave it blank
 Matrix PageRank::createS(const Matrix &g) {
     Matrix s(array, W);
     s = g;
@@ -54,6 +57,7 @@ Matrix PageRank::createS(const Matrix &g) {
     }
     return s;
 }
+//Creates the probability. For every column where there are no 1s set the values to be 1 divided by number of rows
 Matrix PageRank::createSBlank(const Matrix &g) {
     Matrix s(array, W);
     s = g;
@@ -71,7 +75,7 @@ Matrix PageRank::createSBlank(const Matrix &g) {
     }
     return s;
 }
-
+//A new matrix where every element is 1/n(n = numbers of rows)
 Matrix PageRank::createQ() {
     Matrix q(array, W);
     for (int i = 0; i < q.getCol(); i++) {
@@ -82,27 +86,28 @@ Matrix PageRank::createQ() {
     return q;
 
 }
-
-Matrix PageRank::createR(const Matrix &s, const Matrix &q) {
-    Matrix r1;
-    Matrix r;
-    r1 = s;
-    for (int i = 0; i < r1.getCol(); i++) {
-        for (int j = 0; j < r1.getRow(); j++) {
-            r1.set_value(i, j, (r1.get_value(i, j)*0.85));
+//The random walk. Where r = (0.85 + S + (1 - 0.85) * Q).
+//Creates two matrices. One for 0,85 and one for 1 - 0.85
+Matrix PageRank::createM(const Matrix &s, const Matrix &q) {
+    Matrix m1;
+    Matrix m;
+    m1 = s;
+    for (int i = 0; i < m1.getCol(); i++) {
+        for (int j = 0; j < m1.getRow(); j++) {
+            m1.set_value(i, j, (m1.get_value(i, j)*0.85));
         }
     }
-    Matrix r2;
-    r2 = q;
-    for (int i = 0; i < r2.getCol(); i++) {
-        for (int j = 0; j < r2.getRow(); j++) {
-            r2.set_value(i, j, (r2.get_value(i, j)*(1.0-0.85)));
+    Matrix m2;
+    m2 = q;
+    for (int i = 0; i < m2.getCol(); i++) {
+        for (int j = 0; j < m2.getRow(); j++) {
+            m2.set_value(i, j, (m2.get_value(i, j)*(1.0-0.85)));
         }
     }
-    r = r1+r2;
-    return r;
+    m = m1+m2;
+    return m;
 }
-
+//Creates a matrix of row x 1, where every value is 1
 Matrix PageRank::createRank(const Matrix &m) {
 Matrix rank(m.getRow(), 1);
     for (int i = 0; i < m.getRow(); i++) {
@@ -110,7 +115,7 @@ Matrix rank(m.getRow(), 1);
     }
 return rank;
 }
-
+//Multiplys the M matrix by the rank. Keeps ding this till the rank stops changing
 Matrix PageRank::multiplyRank(const Matrix &rank, const Matrix &m) {
     Matrix result = m * rank;
     if(result!=rank) {
@@ -118,7 +123,7 @@ Matrix PageRank::multiplyRank(const Matrix &rank, const Matrix &m) {
     }
     return result;
 }
-
+//Divides each element in the rank by total of the values. And sets them to be in percentages
 Matrix PageRank:: divideRank(const Matrix &m){
     double total = 0;
     for (int i = 0; i < m.getRow(); i++) {
@@ -130,16 +135,16 @@ Matrix PageRank:: divideRank(const Matrix &m){
     }
     return rank;
 }
-
+//Creates all the matrices and combines them together then prints them out.
 void PageRank::printResults(){
-    conMatrix g = createG();
+    Matrix g = createG();
     cout << g << endl;
     Matrix s = createS(g);
     Matrix sb = createSBlank(s);
     Matrix q = createQ();
-    Matrix r = createR(sb, q);
+    Matrix m = createM(sb, q);
     Matrix rank = createRank(sb);
-    Matrix result = multiplyRank(rank, r);
+    Matrix result = multiplyRank(rank, m);
     Matrix ranked = divideRank(result);
     char l='A';
     for (int i = 0; i < ranked.getRow(); i++){
