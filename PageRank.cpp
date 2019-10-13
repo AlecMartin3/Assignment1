@@ -138,10 +138,10 @@ void PageRank::printResults(){
     conMatrix g = createG();
     cout << g << endl;
     Matrix s = createS(g);
-    Matrix s2 = createSBlank(s);
+    Matrix sb = createSBlank(s);
     Matrix q = createQ();
-    Matrix r = createR(s2, q);
-    Matrix rank = createRank(s2);
+    Matrix r = createR(sb, q);
+    Matrix rank = createRank(sb);
     Matrix result = multiplyRank(rank, r);
     Matrix ranked = divideRank(result);
     char l='A';
