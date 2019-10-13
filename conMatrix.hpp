@@ -14,7 +14,7 @@ public:
     conMatrix(double a[], int n);
     conMatrix(const conMatrix&m);
     virtual ~conMatrix();
-    friend std::ostream & operator << (std::ostream &out, const conMatrix &m);
+    friend std::ostream & operator << (std::ostream &os, const conMatrix &m);
 
 };
 

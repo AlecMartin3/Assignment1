@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <cmath>
+#include <iomanip>
 #include "matrix.hpp"
 
 
@@ -121,14 +122,14 @@ ostream& operator<<(ostream& os, const Matrix& mat)
 {
     for(int i = 0; i < mat.getRow(); ++i){
         for(int j = 0; j < mat.getCol(); ++j){
-            os << mat.get_value(i,j) << "  ";
+            os << fixed << setprecision(2) << mat.get_value(i, j) << " ";
         }
         os << "\n";
     }
     return os;
 }
 
-bool operator==( Matrix& mat1, Matrix& mat2)
+bool operator==( const Matrix& mat1, const Matrix& mat2)
 {
     if(mat1.getCol() != mat2.getCol() || mat1.getRow() != mat2.getRow()){
         return false;
@@ -143,7 +144,7 @@ bool operator==( Matrix& mat1, Matrix& mat2)
     }
     return true;
 }
-bool operator!=( Matrix& mat1,  Matrix& mat2){
+bool operator!=( const Matrix& mat1,  const Matrix& mat2){
     return !operator==(mat1,mat2);
 }
 

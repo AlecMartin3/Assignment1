@@ -22,8 +22,8 @@ public:
     int getRow() const;
     int getCol() const;
     friend ostream& operator<<(ostream& os, const Matrix& mat);
-    friend bool operator==( Matrix& mat1, Matrix& mat2);
-    friend bool operator!=( Matrix& mat1, Matrix& mat2);
+    friend bool operator==( const Matrix& mat1, const Matrix& mat2);
+    friend bool operator!=( const Matrix& mat1, const Matrix& mat2);
     Matrix& operator++();
     Matrix operator++(int);
     Matrix& operator--();
