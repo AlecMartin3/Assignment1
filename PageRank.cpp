@@ -143,7 +143,6 @@ void PageRank::printResults(){
     Matrix sb = createSBlank(s);
     Matrix q = createQ();
     Matrix m = createM(sb, q);
-    cout << m << endl;
     Matrix rank = createRank(sb);
     Matrix result = multiplyRank(rank, m);
     Matrix ranked = divideRank(result);
