@@ -20,11 +20,11 @@ private:
 public:
     PageRank();
     ~PageRank();
-    conMatrix createG();
-    Matrix createS(const Matrix &g);
-    Matrix createS2(const Matrix &g);
-    Matrix createQ();
-    Matrix createM(const Matrix &s, const Matrix &q);
+    conMatrix G();
+    Matrix S(const Matrix &g);
+    Matrix S2(const Matrix &g);
+    Matrix Q();
+    Matrix M(const Matrix &s, const Matrix &q);
     Matrix Rank(const Matrix &m);
     Matrix multiply(const Matrix &rank, const Matrix &m);
     Matrix divide(const Matrix &m);

@@ -34,13 +34,13 @@ PageRank::~PageRank(){
 
 }
 //Creates the array that is from the file
-conMatrix PageRank::createG() {
+conMatrix PageRank::G() {
     conMatrix g(array, W);
     return g;
 }
 //Creates the "importance". for every column where there is at least one 1 divide all the values by the number of 1s
 //else leave it blank
-Matrix PageRank::createS(const Matrix &g) {
+Matrix PageRank::S(const Matrix &g) {
     Matrix s(array, W);
     s = g;
     for (int i = 0; i < s.getCol(); ++i) {
@@ -58,7 +58,7 @@ Matrix PageRank::createS(const Matrix &g) {
     return s;
 }
 //Creates the probability. For every column where there are no 1s set the values to be 1 divided by number of rows
-Matrix PageRank::createS2(const Matrix &g) {
+Matrix PageRank::S2(const Matrix &g) {
     Matrix s(array, W);
     s = g;
     for (int i = 0; i < s.getCol(); i++) {
@@ -76,7 +76,7 @@ Matrix PageRank::createS2(const Matrix &g) {
     return s;
 }
 //A new matrix where every element is 1/n(n = numbers of rows)
-Matrix PageRank::createQ() {
+Matrix PageRank::Q() {
     Matrix q(array, W);
     for (int i = 0; i < q.getCol(); i++) {
         for (int j = 0; j < q.getRow(); j++) {
@@ -88,7 +88,7 @@ Matrix PageRank::createQ() {
 }
 //The random walk. Where r = (0.85 + S + (1 - 0.85) * Q).
 //Creates two matrices. One for 0,85 and one for 1 - 0.85
-Matrix PageRank::createM(const Matrix &s, const Matrix &q) {
+Matrix PageRank::M(const Matrix &s, const Matrix &q) {
     Matrix m1;
     Matrix m;
     m1 = s;
@@ -137,19 +137,20 @@ Matrix PageRank:: divide(const Matrix &m){
 }
 //Creates all the matrices and combines them together then prints them out.
 void PageRank::printResults(){
-    Matrix g = createG();
+    Matrix g = G();
     cout << g << endl;
-    Matrix s = createS(g);
-    Matrix sb = createS2(s);
-    Matrix q = createQ();
-    Matrix m = createM(sb, q);
+    Matrix s = S(g);
+    Matrix sb = S2(s);
+    Matrix q = Q();
+    Matrix m = M(sb, q);
+    cout << m << endl;
     Matrix rank = Rank(sb);
     Matrix result = multiply(rank, m);
     cout<< result << endl;
     Matrix ranked = divide(result);
-    char l='A';
+    char let='A';
     for (int i = 0; i < ranked.getRow(); i++){
-        cout << "Page " << static_cast<char>(l++) << ": "
+        cout << "Page " << static_cast<char>(let++) << ": "
              << fixed << setprecision(2) << ranked.get_value(i, 0) << "%" << endl;
     }
 }
