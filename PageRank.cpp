@@ -143,12 +143,13 @@ void PageRank::printResults(){
     Matrix sb = createSBlank(s);
     Matrix q = createQ();
     Matrix m = createM(sb, q);
+    cout << m << endl;
     Matrix rank = createRank(sb);
     Matrix result = multiplyRank(rank, m);
     Matrix ranked = divideRank(result);
-    char l='A';
+    char a='A';
     for (int i = 0; i < ranked.getRow(); i++){
-        cout << "Page " << static_cast<char>(l++) << ": "
+        cout << "Page " << static_cast<char>(a++) << ": "
              << fixed << setprecision(2) << ranked.get_value(i, 0) << "%" << endl;
     }
 }
