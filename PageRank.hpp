@@ -19,7 +19,7 @@ private:
     int sum;
 public:
     PageRank();
-    ~PageRank() = default;
+    ~PageRank();
     conMatrix createG();
     Matrix createS(const Matrix &g);
     Matrix createSBlank(const Matrix &g);
