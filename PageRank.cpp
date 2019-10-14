@@ -58,7 +58,7 @@ Matrix PageRank::createS(const Matrix &g) {
     return s;
 }
 //Creates the probability. For every column where there are no 1s set the values to be 1 divided by number of rows
-Matrix PageRank::createSBlank(const Matrix &g) {
+Matrix PageRank::createS2(const Matrix &g) {
     Matrix s(array, W);
     s = g;
     for (int i = 0; i < s.getCol(); i++) {
@@ -108,7 +108,7 @@ Matrix PageRank::createM(const Matrix &s, const Matrix &q) {
     return m;
 }
 //Creates a matrix of row x 1, where every value is 1
-Matrix PageRank::createRank(const Matrix &m) {
+Matrix PageRank::Rank(const Matrix &m) {
 Matrix rank(m.getRow(), 1);
     for (int i = 0; i < m.getRow(); i++) {
     rank.set_value(i, 0, 1.0);
@@ -116,15 +116,15 @@ Matrix rank(m.getRow(), 1);
 return rank;
 }
 //Multiply the M matrix by the rank. Keeps ding this till the rank stops changing
-Matrix PageRank::multiplyRank(const Matrix &rank, const Matrix &m) {
+Matrix PageRank::multiply(const Matrix &rank, const Matrix &m) {
     Matrix result = m * rank;
     if(result!=rank) {
-        result = multiplyRank(result, m);
+        result = multiply(result, m);
     }
     return result;
 }
 //Divides each element in the rank by total of the values. And sets them to be in percentages
-Matrix PageRank:: divideRank(const Matrix &m){
+Matrix PageRank:: divide(const Matrix &m){
     double total = 0;
     for (int i = 0; i < m.getRow(); i++) {
         total += m.get_value(i,0);
@@ -140,15 +140,16 @@ void PageRank::printResults(){
     Matrix g = createG();
     cout << g << endl;
     Matrix s = createS(g);
-    Matrix sb = createSBlank(s);
+    Matrix sb = createS2(s);
     Matrix q = createQ();
     Matrix m = createM(sb, q);
-    Matrix rank = createRank(sb);
-    Matrix result = multiplyRank(rank, m);
-    Matrix ranked = divideRank(result);
-    char a='A';
+    Matrix rank = Rank(sb);
+    Matrix result = multiply(rank, m);
+    cout<< result << endl;
+    Matrix ranked = divide(result);
+    char l='A';
     for (int i = 0; i < ranked.getRow(); i++){
-        cout << "Page " << static_cast<char>(a++) << ": "
+        cout << "Page " << static_cast<char>(l++) << ": "
              << fixed << setprecision(2) << ranked.get_value(i, 0) << "%" << endl;
     }
 }

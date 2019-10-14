@@ -128,7 +128,7 @@ ostream& operator<<(ostream& os, const Matrix& mat)
 {
     for(int i = 0; i < mat.getRow(); ++i){
         for(int j = 0; j < mat.getCol(); ++j){
-            os << fixed << setprecision(0) << mat.get_value(i, j) << " ";
+            os << fixed << setprecision(2) << mat.get_value(i, j) << " ";
         }
         os << "\n";
     }

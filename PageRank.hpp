@@ -22,12 +22,12 @@ public:
     ~PageRank();
     conMatrix createG();
     Matrix createS(const Matrix &g);
-    Matrix createSBlank(const Matrix &g);
+    Matrix createS2(const Matrix &g);
     Matrix createQ();
     Matrix createM(const Matrix &s, const Matrix &q);
-    Matrix createRank(const Matrix &m);
-    Matrix multiplyRank(const Matrix &rank, const Matrix &m);
-    Matrix divideRank(const Matrix &m);
+    Matrix Rank(const Matrix &m);
+    Matrix multiply(const Matrix &rank, const Matrix &m);
+    Matrix divide(const Matrix &m);
     void printResults();
 };
 

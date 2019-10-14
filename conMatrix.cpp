@@ -14,10 +14,6 @@ conMatrix::conMatrix():Matrix(){
 conMatrix::conMatrix(double *a, int n) : Matrix(a, n) {
 
 }
-//Overriding copy matrix
-conMatrix::conMatrix(const conMatrix &m) : Matrix(m) {
-
-}
 //Overriding Destructor matrix
 conMatrix::~conMatrix() {
 

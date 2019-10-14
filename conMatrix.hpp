@@ -12,9 +12,7 @@
 class conMatrix : public Matrix {
 public:
     conMatrix();
-    conMatrix(int n);
     conMatrix(double a[], int n);
-    conMatrix(const conMatrix&m);
     virtual ~conMatrix();
     friend std::ostream & operator << (std::ostream &os, const conMatrix &m);
 
